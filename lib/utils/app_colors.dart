@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 /// Use these colors consistently across your app for a professional look.
 class AppColors {
   // 🔹 Brand Colors
-  static const Color primary = Color(0xFF000000); // DTech Blue
-  static const Color secondary = Color(0xFF1565C0);
-  static const Color accent = Color(0xFF42A5F5);
+  /// Primary blue used for icons, buttons, accents
+  static const Color primary = Color(0xFF1565C0);
+
+  /// Slightly lighter blue for secondary emphasis
+  static const Color secondary = Color(0xFF1E88E5);
+
+  /// Very light blue for soft icon / card backgrounds
+  static const Color accent = Color(0xFFE3F2FD);
 
   // 🔹 Backgrounds
   static const Color cardBackground = Color(0xFFF5F6FA);

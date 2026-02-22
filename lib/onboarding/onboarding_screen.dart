@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nukkad/auth/usertypeselection_screen.dart';
 import 'package:nukkad/utils/app_colors.dart';
-import 'package:nukkad/login/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
-
+ 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
@@ -42,11 +41,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isOnboarded', true);
 
-    // Navigate to Login Screen
+    // Navigate to User Type Selection Screen
     if (mounted) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
+        MaterialPageRoute(builder: (context) => const UserTypeSelectionScreen()),
       );
     }
   }
@@ -150,19 +149,38 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     )
                   : const SizedBox.shrink(),
             ),
-            // Next button
+            // Next/Get Started button
             Positioned(
               bottom: 30,
               right: 24,
-              child: ElevatedButton(
-                onPressed: nextPage,
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(16),
-                  backgroundColor: AppColors.primary,
-                ),
-                child: const Icon(Icons.arrow_forward_ios_rounded, color: Colors.white),
-              ),
+              child: currentIndex == pages.length - 1
+                  ? ElevatedButton(
+                      onPressed: nextPage,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                      child: const Text(
+                        "Get Started",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  : ElevatedButton(
+                      onPressed: nextPage,
+                      style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(16),
+                        backgroundColor: AppColors.primary,
+                      ),
+                      child: const Icon(Icons.arrow_forward_ios_rounded, color: Colors.white),
+                    ),
             ),
           ],
         ),
