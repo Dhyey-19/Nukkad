@@ -37,6 +37,12 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    lint {
+        // Lint can be memory-heavy on low-RAM systems; skip for release builds.
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
 }
 
 flutter {

@@ -102,7 +102,7 @@ class _SubscriptionPaymentScreenState extends State<SubscriptionPaymentScreen> {
         elevation: 0,
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
+      body: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [

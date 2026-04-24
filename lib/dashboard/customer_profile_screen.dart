@@ -204,9 +204,8 @@ class _CustomerProfileScreenState extends State<CustomerProfileScreen> {
             ? const Center(child: CircularProgressIndicator())
             : RefreshIndicator(
                 onRefresh: _loadData,
-                child: SingleChildScrollView(
+                child: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()), 
                   padding: const EdgeInsets.all(16),
-                  physics: const AlwaysScrollableScrollPhysics(),
                   child: Column(
                     children: [
                       Container(

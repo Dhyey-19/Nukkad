@@ -1,0 +1,12 @@
+sequenceDiagram
+  actor Customer
+  participant App as Nukkad App
+  participant DB as Supabase (Postgres)
+  participant Trigger as DB Trigger
+
+  Customer->>App: Fill enquiry form
+  App->>DB: Insert nkd_enquiries
+  DB-->>App: Enquiry created
+  DB->>Trigger: decrement_connects_on_enquiry
+  Trigger-->>DB: Update nkd_subscriptions.connects_remaining
+  App-->>Customer: Show success and status

@@ -15,7 +15,7 @@ class CustomerPrivacyScreen extends StatelessWidget {
           foregroundColor: Colors.white,
           title: const Text("Privacy Policy"),
         ),
-        body: SingleChildScrollView(
+        body: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
           padding: const EdgeInsets.all(16),
           child: Container(
             padding: const EdgeInsets.all(16),

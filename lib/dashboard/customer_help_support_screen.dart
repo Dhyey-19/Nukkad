@@ -88,7 +88,7 @@ class _CustomerHelpSupportScreenState extends State<CustomerHelpSupportScreen> {
         appBar: AppBar(
           title: const Text("Help & Support"),
         ),
-        body: SingleChildScrollView(
+        body: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
           padding: const EdgeInsets.all(16),
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

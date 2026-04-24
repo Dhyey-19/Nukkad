@@ -1,0 +1,14 @@
+flowchart LR
+  Customer([Customer])
+  BusinessOwner([Business Owner])
+  Admin([Admin])
+  System((Nukkad System))
+
+  Customer -->|Search, View, Enquiry, Save, Review| System
+  System -->|Business listings, Profiles, Status| Customer
+
+  BusinessOwner -->|Profile, Offers, Responses, Subscription| System
+  System -->|Enquiries, Analytics, Notifications| BusinessOwner
+
+  Admin -->|Categories, Emergency data, Moderation| System
+  System -->|Reports, Configuration views| Admin

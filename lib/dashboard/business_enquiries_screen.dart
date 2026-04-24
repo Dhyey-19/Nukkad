@@ -375,7 +375,7 @@ class _BusinessEnquiriesPageState extends State<BusinessEnquiriesPage> {
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          child: SingleChildScrollView(
+          child: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
             child: Container(
               padding: const EdgeInsets.all(20),
               child: Column(

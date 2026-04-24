@@ -1,0 +1,46 @@
+flowchart LR
+  Customer([Customer])
+  BusinessOwner([Business Owner])
+
+  P1((User Auth & Profile))
+  P2((Business Discovery))
+  P3((Enquiry Management))
+  P4((Offers Management))
+  P5((Subscription & Connects))
+  P6((Emergency Directory))
+  P7((Reviews & Saves))
+  P8((Notifications & Analytics))
+
+  D1[(nkd_users)]
+  D2[(nkd_businesses)]
+  D3[(nkd_enquiries)]
+  D4[(nkd_offers)]
+  D5[(nkd_subscriptions)]
+  D6[(nkd_emergency_numbers)]
+  D7[(nkd_reviews)]
+  D8[(nkd_saved_businesses)]
+  D9[(nkd_notifications)]
+  D10[(nkd_business_analytics)]
+
+  Customer --> P1
+  Customer --> P2
+  Customer --> P3
+  Customer --> P6
+  Customer --> P7
+
+  BusinessOwner --> P1
+  BusinessOwner --> P3
+  BusinessOwner --> P4
+  BusinessOwner --> P5
+  BusinessOwner --> P8
+
+  P1 <--> D1
+  P2 <--> D2
+  P3 <--> D3
+  P4 <--> D4
+  P5 <--> D5
+  P6 <--> D6
+  P7 <--> D7
+  P7 <--> D8
+  P8 <--> D9
+  P8 <--> D10

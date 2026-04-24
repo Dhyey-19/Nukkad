@@ -1,0 +1,42 @@
+flowchart LR
+  Customer([Customer])
+  BusinessOwner([Business Owner])
+  Admin([Admin])
+
+  subgraph Nukkad System
+    UC1((Sign up / Log in))
+    UC2((Select role))
+    UC3((Search businesses))
+    UC4((View business profile))
+    UC5((Post enquiry))
+    UC6((Save business))
+    UC7((View offers))
+    UC8((Leave review))
+    UC9((View emergency numbers))
+    UC10((Manage business profile))
+    UC11((Manage offers))
+    UC12((Respond to enquiries))
+    UC13((Manage subscription))
+    UC14((View analytics))
+    UC15((Manage categories/emergency data))
+  end
+
+  Customer --> UC1
+  Customer --> UC2
+  Customer --> UC3
+  Customer --> UC4
+  Customer --> UC5
+  Customer --> UC6
+  Customer --> UC7
+  Customer --> UC8
+  Customer --> UC9
+
+  BusinessOwner --> UC1
+  BusinessOwner --> UC2
+  BusinessOwner --> UC10
+  BusinessOwner --> UC11
+  BusinessOwner --> UC12
+  BusinessOwner --> UC13
+  BusinessOwner --> UC14
+
+  Admin --> UC15

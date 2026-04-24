@@ -98,8 +98,7 @@ class _BusinessAnalyticsPageState extends State<BusinessAnalyticsPage> {
                   )
                 : RefreshIndicator(
                     onRefresh: _loadData,
-                    child: SingleChildScrollView(
-                      physics: const AlwaysScrollableScrollPhysics(),
+                    child: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()), 
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

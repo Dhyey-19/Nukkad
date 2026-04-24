@@ -364,7 +364,7 @@ class _BusinessProfilePageState extends State<BusinessProfilePage> {
             ? const Center(child: CircularProgressIndicator())
             : RefreshIndicator(
                 onRefresh: _loadData,
-                child: SingleChildScrollView(
+                child: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     children: [

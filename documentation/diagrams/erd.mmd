@@ -1,0 +1,78 @@
+erDiagram
+  nkd_users ||--o{ nkd_businesses : owns
+  nkd_users ||--o{ nkd_enquiries : creates
+  nkd_users ||--o{ nkd_reviews : writes
+  nkd_users ||--o{ nkd_saved_businesses : saves
+  nkd_users ||--o{ nkd_subscriptions : subscribes
+  nkd_users ||--o{ nkd_notifications : receives
+  nkd_users ||--o{ nkd_business_analytics : triggers
+
+  nkd_businesses ||--o{ nkd_enquiries : receives
+  nkd_businesses ||--o{ nkd_offers : has
+  nkd_businesses ||--o{ nkd_reviews : has
+  nkd_businesses ||--o{ nkd_saved_businesses : saved_by
+  nkd_businesses ||--o{ nkd_business_analytics : tracked
+  nkd_businesses ||--o{ nkd_subscriptions : subscribed
+
+  business_categories ||--o{ nkd_businesses : categorizes
+
+  nkd_users {
+    BIGSERIAL user_id PK
+    VARCHAR full_name
+    VARCHAR email
+    VARCHAR phone
+    VARCHAR role
+  }
+  nkd_businesses {
+    BIGSERIAL business_id PK
+    BIGINT user_id FK
+    VARCHAR business_name
+    VARCHAR business_category
+  }
+  nkd_enquiries {
+    BIGSERIAL enquiry_id PK
+    BIGINT customer_id FK
+    BIGINT business_id FK
+    VARCHAR status
+  }
+  nkd_offers {
+    BIGSERIAL offer_id PK
+    BIGINT business_id FK
+    VARCHAR offer_title
+  }
+  nkd_reviews {
+    BIGSERIAL review_id PK
+    BIGINT business_id FK
+    BIGINT customer_id FK
+    INTEGER rating
+  }
+  nkd_saved_businesses {
+    BIGSERIAL saved_id PK
+    BIGINT customer_id FK
+    BIGINT business_id FK
+  }
+  nkd_subscriptions {
+    BIGSERIAL subscription_id PK
+    BIGINT user_id FK
+    BIGINT business_id FK
+    VARCHAR subscription_type
+  }
+  nkd_emergency_numbers {
+    BIGSERIAL emergency_id PK
+    VARCHAR service_name
+    VARCHAR category
+  }
+  nkd_business_analytics {
+    BIGSERIAL analytics_id PK
+    BIGINT business_id FK
+    VARCHAR event_type
+  }
+  nkd_notifications {
+    BIGSERIAL notification_id PK
+    BIGINT user_id FK
+    VARCHAR type
+  }
+  business_categories {
+    BIGSERIAL category_id PK
+    VARCHAR category_name
+  }

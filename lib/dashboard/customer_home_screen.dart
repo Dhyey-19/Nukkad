@@ -159,7 +159,7 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
     return SafeArea(
       child: RefreshIndicator(
         onRefresh: _refreshData,
-        child: SingleChildScrollView(
+        child: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -273,7 +273,7 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
         const SizedBox(width: 8),
         Expanded(
           child: DropdownButtonFormField<String>(
-            value: _selectedDistance,
+            initialValue: _selectedDistance,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
               contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),

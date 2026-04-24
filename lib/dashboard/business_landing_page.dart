@@ -522,7 +522,7 @@ class _BusinessLandingPageState extends State<BusinessLandingPage> {
           ? const Center(child: CircularProgressIndicator())
           : business == null
               ? const Center(child: Text("Business not found"))
-              : SingleChildScrollView(
+              : SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

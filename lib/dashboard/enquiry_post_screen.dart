@@ -97,7 +97,7 @@ class _EnquiryPostScreenState extends State<EnquiryPostScreen> {
           foregroundColor: Colors.white,
           elevation: 0,
         ),
-        body: SingleChildScrollView(
+        body: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
           padding: const EdgeInsets.all(16),
           child: Form(
             key: _formKey,

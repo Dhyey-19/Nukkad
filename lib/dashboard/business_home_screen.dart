@@ -101,17 +101,28 @@ class _BusinessHomePageState extends State<BusinessHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: RefreshIndicator(
-        onRefresh: _refreshData,
-        child: isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _welcomeCard(),
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.primary,
+        elevation: 0,
+        foregroundColor: Colors.white,
+        title: const Text("Dashboard"),
+      ),
+      body: SafeArea(
+        child: RefreshIndicator(
+          onRefresh: _refreshData,
+          child: isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : SingleChildScrollView(
+                  keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, 
+                  physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()), 
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _welcomeCard(),
 
                     const SizedBox(height: 16),
                     _quickActions(context),
@@ -133,6 +144,7 @@ class _BusinessHomePageState extends State<BusinessHomePage> {
                   ],
                 ),
               ),
+        ),
       ),
     );
   }

@@ -53,20 +53,25 @@ class CustomTextBox extends StatelessWidget {
       autovalidateMode: autovalidateMode,
       inputFormatters: inputFormatters,
       textInputAction: textInputAction,
+      scrollPadding: const EdgeInsets.only(bottom: 120.0), // 🔹 Smooth padding when keyboard opens
       focusNode: focusNode,
       onChanged: onChanged,
       onFieldSubmitted: onFieldSubmitted,
       enableSuggestions: !obscureText,
       autocorrect: !obscureText,
       cursorColor: AppColors.primary,
-      style: TextStyle(
+      style: const TextStyle(
         color: AppColors.textPrimary,
+        height: 1.2, // Improved line-height readability
       ),
       decoration: InputDecoration(
         labelText: labelText,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: AppColors.textSecondary,
         ),
+        filled: true,
+        fillColor: AppColors.inputFill,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         prefixIcon: prefixIcon != null
             ? Icon(
                 prefixIcon,
@@ -86,16 +91,30 @@ class CustomTextBox extends StatelessWidget {
         /// 🔹 Borders
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.border), // Soft neutral border
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.border), // Matches textFill/background well
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.primary,
-            width: 2,
+            width: 1.5, // Slightly thinner for professionalism
           ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.error),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.error, width: 1.5),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none, // Hide border when disabled, rely on fill
         ),
       ),
     );

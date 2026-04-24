@@ -63,7 +63,7 @@ class _CustomerEditProfileScreenState extends State<CustomerEditProfileScreen> {
         elevation: 0,
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
+      body: SingleChildScrollView(keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag, physics: const BouncingScrollPhysics(), 
         padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,

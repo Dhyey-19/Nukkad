@@ -284,7 +284,7 @@ class _CustomerExploreScreenState extends State<CustomerExploreScreen> {
         const SizedBox(width: 8),
         Expanded(
           child: DropdownButtonFormField<String>(
-            value: _selectedDistance,
+            initialValue: _selectedDistance,
             decoration: const InputDecoration(
               labelText: 'Distance',
               border: OutlineInputBorder(),

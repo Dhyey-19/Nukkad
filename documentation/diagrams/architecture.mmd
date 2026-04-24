@@ -1,0 +1,26 @@
+flowchart LR
+  subgraph Client
+    UI[Flutter UI]
+    Services[Service Layer]
+    Local[SharedPreferences]
+  end
+
+  subgraph Backend
+    Supabase[Supabase API]
+    DB[(Postgres DB)]
+  end
+
+  subgraph Device
+    Geo[Geolocation]
+    Dialer[Phone Dialer]
+    Links[External Links]
+  end
+
+  UI --> Services
+  Services --> Supabase
+  Supabase --> DB
+  UI --> Local
+
+  UI --> Geo
+  UI --> Dialer
+  UI --> Links
