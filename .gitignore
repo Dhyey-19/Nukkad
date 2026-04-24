@@ -30,7 +30,7 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+build/
 /coverage/
 
 # Symbolication related
@@ -44,4 +44,23 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Android local configuration / secrets
+/android/local.properties
+**/key.properties
+*.jks
+*.keystore
+
 *.hprof
+
+# iOS/macOS generated files
+**/Pods/
+**/.symlinks/
+**/Flutter/ephemeral/
+**/Flutter/App.framework/
+**/Flutter/Flutter.framework/
+**/Flutter/Flutter.podspec
+**/Flutter/Generated.xcconfig
+**/Flutter/flutter_export_environment.sh
+**/DerivedData/
+**/*.xcuserstate
+**/*.xcuserdata/
